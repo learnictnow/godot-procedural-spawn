@@ -21,12 +21,20 @@ signal exit_west
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	
 	for count in range(0, max_blocks):
 		var tmp_block = block_scene.instantiate()
+		#tmp_block.position = position + Vector3(randi_range(min_x_spawn, max_x_spawn),
+		#randi_range(min_y_spawn, max_y_spawn),randi_range(min_z_spawn, max_z_spawn))
+		
+		tmp_block.position = Vector3(randi_range(min_x_spawn, max_x_spawn),
+		randi_range(min_y_spawn, max_y_spawn),randi_range(min_z_spawn, max_z_spawn))
+		
+		print(tmp_block.position)
 		
 		add_child(tmp_block)
-		tmp_block.position = global_position + Vector3(randi_range(min_x_spawn, max_x_spawn),
-		randi_range(min_y_spawn, max_y_spawn),randi_range(min_z_spawn, max_z_spawn))
+		
+		
 	pass # Replace with function body.
 
 

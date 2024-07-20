@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://bg1ijcl2jncbj"]
+
+[ext_resource type="PackedScene" uid="uid://bgbe3rw1cnnqb" path="res://player.tscn" id="1_5oysl"]
+[ext_resource type="Script" path="res://LevelBuilder.gd" id="2_v5pya"]
+[ext_resource type="PackedScene" uid="uid://ne26tfknutpq" path="res://GameTile.tscn" id="3_xtyow"]
+
+[node name="BuildLevel" type="Node3D"]
+
+[node name="Player" parent="." instance=ExtResource("1_5oysl")]
+
+[node name="Level" type="Node3D" parent="."]
+script = ExtResource("2_v5pya")
+game_tile = ExtResource("3_xtyow")
