@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://6gnanugtysv8"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i2p2u"]
+diffuse_mode = 3
+specular_mode = 2
+albedo_color = Color(0.701961, 0.0823529, 0, 1)
+roughness = 0.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_gmkh0"]
+material = SubResource("StandardMaterial3D_i2p2u")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_70qx3"]
+
+[node name="Block" type="StaticBody3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_gmkh0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_70qx3")

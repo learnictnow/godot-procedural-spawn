@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://dls0kv7c6k4xn"]
+
+[ext_resource type="PackedScene" uid="uid://ne26tfknutpq" path="res://GameTile.tscn" id="1_4y175"]
+[ext_resource type="Script" path="res://Game.gd" id="1_q1k70"]
+[ext_resource type="PackedScene" uid="uid://bgbe3rw1cnnqb" path="res://player.tscn" id="2_w78vu"]
+
+[node name="Game" type="Node3D"]
+script = ExtResource("1_q1k70")
+game_tile = ExtResource("1_4y175")
+
+[node name="GameTile" parent="." instance=ExtResource("1_4y175")]
+
+[node name="Player" parent="." instance=ExtResource("2_w78vu")]
