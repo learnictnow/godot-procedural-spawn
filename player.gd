@@ -16,8 +16,11 @@ func _physics_process(delta):
 		velocity.y -= gravity * delta
 
 	# Handle jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
+	#if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+		#velocity.y = JUMP_VELOCITY
+	if Input.is_action_just_pressed("ui_accept"):
+		print("Pew")
+		primary_fire()
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -43,3 +46,13 @@ func _physics_process(delta):
 	$Body
 
 	move_and_slide()
+
+
+@export var projectile:PackedScene
+
+func primary_fire():
+	print("Pew pew")
+	var tmp_bullet = projectile.instantiate()
+	tmp_bullet.position = $Turret/ProjectileSpawn.global_position
+	tmp_bullet.rotation = $Turret/ProjectileSpawn.global_rotation
+	add_sibling(tmp_bullet)

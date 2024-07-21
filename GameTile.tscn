@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://ne26tfknutpq"]
+[gd_scene load_steps=8 format=3 uid="uid://ne26tfknutpq"]
 
 [ext_resource type="Script" path="res://GameTile.gd" id="1_5txuv"]
 [ext_resource type="PackedScene" uid="uid://6gnanugtysv8" path="res://block.tscn" id="2_35085"]
@@ -14,6 +14,11 @@ albedo_color = Color(0.545273, 0.349393, 0.012988, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kg2q3"]
 size = Vector3(1.5, 3, 10)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_nfnoy"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1k7us"]
+size = Vector3(10, 1, 10)
 
 [node name="GameTile" type="Node3D"]
 script = ExtResource("1_5txuv")
@@ -51,6 +56,12 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 2, 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3DSouth"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.75, 0, 0)
 shape = SubResource("BoxShape3D_kg2q3")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+physics_material_override = SubResource("PhysicsMaterial_nfnoy")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_1k7us")
 
 [connection signal="exit_east" from="." to="." method="_on_exit_east"]
 [connection signal="exit_north" from="." to="." method="_on_exit_north"]

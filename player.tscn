@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://bgbe3rw1cnnqb"]
+[gd_scene load_steps=9 format=3 uid="uid://bgbe3rw1cnnqb"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_n8b4k"]
+[ext_resource type="PackedScene" uid="uid://dtxex0xwykf24" path="res://projectile.tscn" id="2_vgyqe"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cwucx"]
 albedo_color = Color(1, 0.356863, 1, 1)
@@ -24,6 +25,7 @@ size = Vector3(0.5, 0.75, 0.75)
 [node name="Player" type="CharacterBody3D" groups=["Player"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 script = ExtResource("1_n8b4k")
+projectile = ExtResource("2_vgyqe")
 
 [node name="Turret" type="Marker3D" parent="."]
 
@@ -38,6 +40,9 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.0
 radius = 0.05
 height = 0.3
 material = SubResource("StandardMaterial3D_gwher")
+
+[node name="ProjectileSpawn" type="Marker3D" parent="Turret"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35, -0.5)
 
 [node name="Body" type="MeshInstance3D" parent="."]
 mesh = SubResource("BoxMesh_3gpw4")
